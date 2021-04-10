@@ -1,4 +1,5 @@
 {
+  "extends": "./tsconfig.edit.json",
   "compilerOptions": {
     "target": "es5",
     "lib": [
@@ -22,6 +23,6 @@
   },
   "include": [
     "./node_modules/web3-typescript-typings/index.d.ts",
-    "src",
+    "src"
   ]
 }
