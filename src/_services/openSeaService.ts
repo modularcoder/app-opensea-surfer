@@ -8,6 +8,8 @@ const seaport = new OpenSeaPort(provider, {
   networkName: Network.Main,
 })
 
-const openSeaService = {}
+const openSeaService = {
+  instance: seaport,
+}
 
 export default openSeaService
