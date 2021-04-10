@@ -1,6 +1,8 @@
 import React from 'react'
 import { useMainPageData } from './mainPageData'
 
+import { BaseCardBundle } from '../_common/BaseCardBundle/BaseCardBundle'
+
 export const MainPage = () => {
   const { loading, error, data } = useMainPageData()
 
@@ -11,7 +13,7 @@ export const MainPage = () => {
     <div>
       Main Page
       {data.bundles.map((bundle, index) => {
-        return <li key={index}>bundle</li>
+        return <BaseCardBundle key={index} data={bundle} />
       })}
     </div>
   )
