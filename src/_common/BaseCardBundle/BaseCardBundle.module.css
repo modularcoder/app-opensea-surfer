@@ -1,0 +1,38 @@
+.BaseCardBundle {
+}
+
+.Name,
+.Description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.Name {
+  -webkit-line-clamp: 2; /* number of lines to show */
+}
+
+.Description {
+  -webkit-line-clamp: 4; /* number of lines to show */
+}
+
+.Thumbnail {
+  transition: all 0.3s ease;
+  @apply top-0;
+}
+
+.ThumbnailImg {
+  -webkit-filter: grayscale(80%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(80%);
+  transition: all 0.3s ease;
+}
+
+.BaseCardBundle:hover .Thumbnail {
+  @apply -top-6;
+  @apply shadow-xl;
+}
+
+.BaseCardBundle:hover .ThumbnailImg {
+  filter: none;
+}
