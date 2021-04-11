@@ -64,7 +64,7 @@ export const BaseCardBundle: React.FC<BaseCardBundleProps> = ({ data }) => {
         className="
           flex flex-grow-0 p-4
           rounded-b-lg
-          bg-gradient-to-br from-blue-400 to-indigo-400
+          bg-gray-600
         "
       >
         <span className="text-white text-opacity-70 text-xs">Owner: {owner.address}</span>

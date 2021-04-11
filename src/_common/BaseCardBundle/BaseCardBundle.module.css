@@ -19,7 +19,9 @@
 
 .Thumbnail {
   transition: all 0.3s ease;
+  @apply transform;
   @apply top-0;
+  @apply rotate-0;
 }
 
 .ThumbnailImg {
@@ -29,6 +31,8 @@
 }
 
 .BaseCardBundle:hover .Thumbnail {
+  @apply transform;
+  @apply rotate-2;
   @apply -top-6;
   @apply shadow-xl;
 }
