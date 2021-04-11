@@ -10,7 +10,7 @@ export interface BaseCardBundleProps {
 export const BaseCardBundle: React.FC<BaseCardBundleProps> = ({ data }) => {
   const { name, description, assets } = data
   const firstAsset = assets[0]
-  const { imagePreviewUrl, imageUrlThumbnail, owner } = firstAsset
+  const { imagePreviewUrl, owner } = firstAsset
 
   return (
     <div
@@ -18,6 +18,7 @@ export const BaseCardBundle: React.FC<BaseCardBundleProps> = ({ data }) => {
         styles.BaseCardBundle,
         'flex flex-col bg-white text-left w-full h-full rounded-lg shadow-lg mb-8',
       )}
+      role="listitem"
     >
       <div className="flex flex-1 p-4">
         <div
