@@ -24,7 +24,8 @@ export const BaseCardBundle: React.FC<BaseCardBundleProps> = ({ data }) => {
       )}
       role="listitem"
     >
-      <div className="flex flex-1 p-4">
+      {/* Content */}
+      <div className="flex flex-1 p-4 md:flex-col lg:flex-row">
         {/* Thumbnails */}
         <div
           className={clsx(
@@ -92,6 +93,7 @@ export const BaseCardBundle: React.FC<BaseCardBundleProps> = ({ data }) => {
           </p>
         </div>
       </div>
+      {/* Footer */}
       <div
         className="
           flex flex-grow-0 p-4
@@ -101,10 +103,10 @@ export const BaseCardBundle: React.FC<BaseCardBundleProps> = ({ data }) => {
           bg-gray-600
         "
       >
-        <span className="text-white text-opacity-70 text-xs">
-          Assets: {assets.length}
-        </span>
-        <span className="text-white text-opacity-70 text-xs">Owner: {owner.address}</span>
+        <div className="text-white text-opacity-70 text-xs">Assets: {assets.length}</div>
+        <div className="text-white text-opacity-70 text-xs hidden lg:block">
+          Owner: {owner.address}
+        </div>
       </div>
     </div>
   )
