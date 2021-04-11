@@ -11,7 +11,7 @@ export const App = () => {
     <Router>
       <div
         className="
-          App w-full relative flex flex-col
+          App min-h-screen w-full relative flex flex-col
           text-white
         "
       >
