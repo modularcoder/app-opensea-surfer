@@ -3,6 +3,7 @@ import React from 'react'
 import { OpenSeaAssetBundle } from 'opensea-js/lib/types'
 import styles from './BaseCardBundle.module.css'
 
+import { Link } from 'react-router-dom'
 import BaseCardBundleThumbnails from './BaseCardBundleThumbnails'
 
 export interface BaseCardBundleProps {
@@ -10,7 +11,7 @@ export interface BaseCardBundleProps {
 }
 
 export const BaseCardBundle: React.FC<BaseCardBundleProps> = ({ data }) => {
-  const { name, description, assets } = data
+  const { name, description, assets, slug } = data
   const firstAsset = assets[0]
   const { owner } = firstAsset
 
@@ -25,7 +26,13 @@ export const BaseCardBundle: React.FC<BaseCardBundleProps> = ({ data }) => {
       {/* Content */}
       <div className="p-4 flex flex-1 flex-col lg:flex-row">
         {/* Thumbnails */}
-        <BaseCardBundleThumbnails assets={assets} />
+        <Link
+          to={{
+            pathname: `/bundles/${slug}`,
+          }}
+        >
+          <BaseCardBundleThumbnails assets={assets} />
+        </Link>
         {/* Body */}
         <div className="flex-auto p-6">
           <div className="flex flex-wrap">

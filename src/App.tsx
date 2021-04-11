@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import AppFooter from './_common/AppFooter/AppFooter'
 import AppHeader from './_common/AppHeader/AppHeader'
 
+import AssetPage from './AssetPage/AssetPage'
+import BundlePage from './BundlePage/BundlePage'
 import MainPage from './MainPage/MainPage'
 
 export const App = () => {
@@ -21,8 +23,11 @@ export const App = () => {
             <Route exact path="/">
               <MainPage />
             </Route>
-            <Route path="/asset/:assetId">
-              <p className="text-shadow text-xl">@ToDo: Single Asset page</p>
+            <Route path="/assets/:assetId">
+              <AssetPage />
+            </Route>
+            <Route path="/bundles/:bundleSlug">
+              <BundlePage />
             </Route>
           </Switch>
         </div>

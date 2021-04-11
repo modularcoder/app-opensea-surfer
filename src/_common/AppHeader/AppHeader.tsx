@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const AppHeader = () => {
   return (
@@ -10,9 +11,11 @@ export const AppHeader = () => {
     "
     >
       <div className="container mx-auto">
-        <h1 className="text-xl font-semibold mb-2 text-shadow text-light-blue-300">
-          OpenSea.io surfer
-        </h1>
+        <Link to={{ pathname: '/' }}>
+          <h1 className="text-xl font-semibold mb-2 text-shadow text-light-blue-300">
+            OpenSea.io surfer
+          </h1>
+        </Link>
       </div>
     </header>
   )
