@@ -3,6 +3,8 @@ import React from 'react'
 import { OpenSeaAssetBundle } from 'opensea-js/lib/types'
 import styles from './BaseCardBundle.module.css'
 
+import BaseCardBundleMedia from './BaseCardBundleMedia'
+
 export interface BaseCardBundleProps {
   data: OpenSeaAssetBundle
 }
@@ -11,7 +13,8 @@ export const BaseCardBundle: React.FC<BaseCardBundleProps> = ({ data }) => {
   const { name, description, assets } = data
   const firstAsset = assets[0]
   const secondAsset = assets[1] || undefined
-  const { imagePreviewUrl, owner } = firstAsset
+  const { owner } = firstAsset
+  const numAssetsMore = Math.max(assets.length - 1, 0)
 
   return (
     <div
@@ -23,32 +26,47 @@ export const BaseCardBundle: React.FC<BaseCardBundleProps> = ({ data }) => {
     >
       <div className="flex flex-1 p-4">
         {/* Thumbnails */}
-        <div className={clsx(styles.ThumbnailsContainer, 'flex-none w-48 h-32 relative')}>
+        <div
+          className={clsx(
+            styles.ThumbnailsContainer,
+            'flex-none lg:w-40 xl:w-48 relative',
+          )}
+        >
           <div
             className={clsx(
               styles.ThumbnailPrimary,
-              'w-48 h-32 bg-white shadow-md overflow-hidden p-4 rounded relative z-20',
+              'lg:w-40 xl:w-48 h-32 bg-white shadow-md overflow-hidden rounded relative z-20',
             )}
           >
-            <img
-              src={imagePreviewUrl}
-              alt=""
-              className={clsx(
-                styles.ThumbnailImg,
-                'absolute inset-0 w-full h-full object-cover rounded',
-              )}
+            <BaseCardBundleMedia
+              src={firstAsset.imagePreviewUrl}
+              className={styles.ThumbnailImg}
             />
           </div>
           <div
             className={clsx(
               styles.ThumbnailSecondary,
-              'w-48 h-32 bg-white shadow-md overflow-hidden p-4 rounded absolute top-0 z-0',
+              'lg:w-40 xl:w-48 h-32 bg-white shadow-md overflow-hidden rounded absolute top-0 z-0',
             )}
           >
-            <img
+            {numAssetsMore && (
+              <div
+                className="
+                  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+                  p-2
+                  rounded
+                bg-gray-900 text-white text-sm
+                  whitespace-nowrap
+                  opacity-80
+                  z-10
+                "
+              >
+                +{numAssetsMore} more assets
+              </div>
+            )}
+            <BaseCardBundleMedia
               src={secondAsset.imagePreviewUrl}
-              alt=""
-              className={clsx('absolute inset-0 w-full h-full object-cover rounded')}
+              className={styles.ThumbnailImg}
             />
           </div>
         </div>
@@ -58,7 +76,7 @@ export const BaseCardBundle: React.FC<BaseCardBundleProps> = ({ data }) => {
             <h3
               className={clsx(
                 styles.Name,
-                'mb-4 h-14 flex-auto text-lg text-indigo-600 font-semibold',
+                'mb-4 h-14 flex-auto text-lg text-indigo-600 font-semibold break-all',
               )}
             >
               {name}

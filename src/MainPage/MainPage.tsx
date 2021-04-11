@@ -6,7 +6,7 @@ import { BaseCardBundle } from '../_common/BaseCardBundle/BaseCardBundle'
 export const MainPage = () => {
   const { loading, error, data } = useMainPageData()
 
-  if (loading) return <p>Loading...</p>
+  if (loading) return <p>Loading bundles...</p>
   if (error) return <p role="alert">Error :( ({error.message})</p>
 
   return (
