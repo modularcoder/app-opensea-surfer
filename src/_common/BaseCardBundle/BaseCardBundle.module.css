@@ -36,21 +36,23 @@
   @apply shadow-xl;
 }
 
-.ThumbnailImg {
-  -webkit-filter: grayscale(80%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(80%);
-  transition: all 0.3s ease;
-}
+@screen md {
+  .ThumbnailImg {
+    -webkit-filter: grayscale(80%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(80%);
+    transition: all 0.3s ease;
+  }
 
-.ThumbnailsContainer:hover .ThumbnailPrimary {
-  @apply rotate-6;
-  @apply -top-12;
-}
+  .ThumbnailsContainer:hover .ThumbnailPrimary {
+    @apply rotate-6;
+    @apply -top-12;
+  }
 
-.ThumbnailsContainer:hover .ThumbnailSecondary {
-  @apply top-12;
-}
+  .ThumbnailsContainer:hover .ThumbnailSecondary {
+    @apply top-12;
+  }
 
-.BaseCardBundle:hover .ThumbnailImg {
-  filter: none;
+  .BaseCardBundle:hover .ThumbnailImg {
+    filter: none;
+  }
 }
