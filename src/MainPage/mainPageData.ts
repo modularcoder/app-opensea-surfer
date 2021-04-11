@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from 'react'
 import openSeaService from '../_services/openSeaService'
 
 import { OpenSeaAssetBundle } from 'opensea-js/lib/types'
-import { Category } from '../_types'
+// import { Category } from '../_types'
 
 export interface IMainPageData {
   bundles: OpenSeaAssetBundle[]
