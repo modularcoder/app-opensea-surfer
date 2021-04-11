@@ -51,19 +51,22 @@ export const BaseCardBundle: React.FC<BaseCardBundleProps> = ({ data }) => {
             )}
           >
             {numAssetsMore && (
-              <div
-                className="
-                  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-                  p-2
-                  rounded
-                bg-gray-900 text-white text-sm
+              <>
+                <div
+                  className="
+                  absolute right-0 bottom-0 transform translate-x-1/2 translate-y-1/2
+                  p-10
+                  rounded-full
+                bg-gray-900 text-white
                   whitespace-nowrap
                   opacity-80
                   z-10
                 "
-              >
-                +{numAssetsMore} more assets
-              </div>
+                ></div>
+                <span className="absolute right-2 bottom-2 text-xs z-20 font-semibold">
+                  +{numAssetsMore}
+                </span>
+              </>
             )}
             <BaseCardBundleMedia
               src={secondAsset.imagePreviewUrl}
