@@ -11,10 +11,10 @@ export const MainPage = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {data.bundles.map((bundle, index) => {
           return (
-            <div key={index}>
+            <div key={index} className="pb-4">
               <BaseCardBundle data={bundle} />
             </div>
           )
