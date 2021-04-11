@@ -15,7 +15,7 @@ export interface IMainPage {
   loading: Boolean
 }
 
-export const useMainPageData = (): IMainPage => {
+export const useBundlesPageData = (): IMainPage => {
   const [data, setData] = useState<IMainPageData>({ bundles: [] })
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)

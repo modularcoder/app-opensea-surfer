@@ -3,9 +3,11 @@ import React from 'react'
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 import { render, screen, waitFor } from '@testing-library/react'
-import MainPage from '../MainPage'
+import BundlesPage from '../BundlesPage'
 import config from '../../config'
-import { responseSuccess } from './MainPageFixtures'
+import { responseSuccess } from './BundlesPageFixtures'
+import { Router } from 'react-router-dom'
+import { createMemoryHistory } from 'history'
 
 const server = setupServer(
   rest.get(`${config.openSeaApiUrl}/bundles/`, (req, res, ctx) => {
@@ -18,7 +20,15 @@ afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
 test('renders list of bundle cards', async () => {
-  render(<MainPage />)
+  const history = createMemoryHistory()
+  const route = '/'
+  history.push(route)
+
+  render(
+    <Router history={history}>
+      <BundlesPage />
+    </Router>,
+  )
 
   await waitFor(() => screen.getAllByRole('listitem'))
 
@@ -35,7 +45,15 @@ test('displays error message', async () => {
     }),
   )
 
-  render(<MainPage />)
+  const history = createMemoryHistory()
+  const route = '/'
+  history.push(route)
+
+  render(
+    <Router history={history}>
+      <BundlesPage />
+    </Router>,
+  )
 
   await waitFor(() => screen.getByRole('alert'))
 
