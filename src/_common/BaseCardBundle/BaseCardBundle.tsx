@@ -10,6 +10,7 @@ export interface BaseCardBundleProps {
 export const BaseCardBundle: React.FC<BaseCardBundleProps> = ({ data }) => {
   const { name, description, assets } = data
   const firstAsset = assets[0]
+  const secondAsset = assets[1] || undefined
   const { imagePreviewUrl, owner } = firstAsset
 
   return (
@@ -21,21 +22,37 @@ export const BaseCardBundle: React.FC<BaseCardBundleProps> = ({ data }) => {
       role="listitem"
     >
       <div className="flex flex-1 p-4">
-        <div
-          className={clsx(
-            styles.Thumbnail,
-            'flex-none w-48 h-32 bg-white shadow-md sha overflow-hidden p-4 rounded relative',
-          )}
-        >
-          <img
-            src={imagePreviewUrl}
-            alt=""
+        {/* Thumbnails */}
+        <div className={clsx(styles.ThumbnailsContainer, 'flex-none w-48 h-32 relative')}>
+          <div
             className={clsx(
-              styles.ThumbnailImg,
-              'absolute inset-0 w-full h-full object-cover rounded',
+              styles.ThumbnailPrimary,
+              'w-48 h-32 bg-white shadow-md overflow-hidden p-4 rounded relative z-20',
             )}
-          />
+          >
+            <img
+              src={imagePreviewUrl}
+              alt=""
+              className={clsx(
+                styles.ThumbnailImg,
+                'absolute inset-0 w-full h-full object-cover rounded',
+              )}
+            />
+          </div>
+          <div
+            className={clsx(
+              styles.ThumbnailSecondary,
+              'w-48 h-32 bg-white shadow-md overflow-hidden p-4 rounded absolute top-0 z-0',
+            )}
+          >
+            <img
+              src={secondAsset.imagePreviewUrl}
+              alt=""
+              className={clsx('absolute inset-0 w-full h-full object-cover rounded')}
+            />
+          </div>
         </div>
+        {/* Body */}
         <div className="flex-auto p-6">
           <div className="flex flex-wrap">
             <h3
@@ -46,10 +63,6 @@ export const BaseCardBundle: React.FC<BaseCardBundleProps> = ({ data }) => {
             >
               {name}
             </h3>
-            {/* <div class="text-xl font-semibold text-gray-500">$110.00</div>
-            <div class="w-full flex-none text-sm font-medium text-gray-500 mt-2">
-              In stock
-            </div> */}
           </div>
           <p
             className={clsx(
@@ -64,10 +77,15 @@ export const BaseCardBundle: React.FC<BaseCardBundleProps> = ({ data }) => {
       <div
         className="
           flex flex-grow-0 p-4
+          flex-row
+          justify-between
           rounded-b-lg
           bg-gray-600
         "
       >
+        <span className="text-white text-opacity-70 text-xs">
+          Assets: {assets.length}
+        </span>
         <span className="text-white text-opacity-70 text-xs">Owner: {owner.address}</span>
       </div>
     </div>

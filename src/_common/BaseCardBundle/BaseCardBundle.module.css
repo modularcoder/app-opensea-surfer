@@ -17,11 +17,23 @@
   -webkit-line-clamp: 4; /* number of lines to show */
 }
 
-.Thumbnail {
+.ThumbnailsContainer {
+}
+
+.ThumbnailPrimary {
   transition: all 0.3s ease;
   @apply transform;
   @apply top-0;
   @apply rotate-0;
+  @apply shadow-xl;
+}
+
+.ThumbnailSecondary {
+  transition: all 0.3s ease;
+  @apply transform;
+  @apply top-0;
+  @apply -rotate-6;
+  @apply shadow-xl;
 }
 
 .ThumbnailImg {
@@ -30,11 +42,13 @@
   transition: all 0.3s ease;
 }
 
-.BaseCardBundle:hover .Thumbnail {
-  @apply transform;
-  @apply rotate-2;
-  @apply -top-6;
-  @apply shadow-xl;
+.ThumbnailsContainer:hover .ThumbnailPrimary {
+  @apply rotate-6;
+  @apply -top-12;
+}
+
+.ThumbnailsContainer:hover .ThumbnailSecondary {
+  @apply top-12;
 }
 
 .BaseCardBundle:hover .ThumbnailImg {
