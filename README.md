@@ -13,6 +13,10 @@ This is just a demo just for fun project
 
 Objectives are
 
-- Eplore OpenSea SDK
-- Build a UI that shows collections, assets
-- Maybe show some Etherium stats and transactions
+- Try out OpenSea SDK
+- Familiarize with typings
+- Setup directory structure
+- Setup linter, prettier
+- Try out TailwindCSS, setup tooling
+- Build a UI that shows bundles
+- Maybe show some Etherium stats and transactions directly from web3.js
